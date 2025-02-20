@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uno Hoodies - Coming Soon</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background:url(/Users/akramchekkouri/Downloads/IMG_1932.jpg);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            color: white;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+        }
+        h1 {
+            font-size: 3.5rem;
+            margin: 0;
+            animation: float 3s ease-in-out infinite;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        p {
+            font-size: 1.2rem;
+            margin: 10px 0;
+            color: #ccc;
+        }
+        .coming-soon {
+            font-size: 2rem;
+            font-weight: bold;
+            color: white;
+            animation: glow 2s infinite alternate;
+            margin: 20px 0;
+        }
+        @keyframes glow {
+            0% { text-shadow: 0 0 5px white, 0 0 10px white; }
+            100% { text-shadow: 0 0 20px white, 0 0 30px white; }
+        }
+        .waitlist-form {
+            margin-top: 30px;
+        }
+        .waitlist-input {
+            padding: 12px;
+            font-size: 1rem;
+            border: 2px solid white;
+            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            outline: none;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            width: 200px;
+        }
+        .waitlist-btn {
+            padding: 12px 25px;
+            font-size: 1rem;
+            background: white;
+            border: none;
+            border-radius: 25px;
+            color: black;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .waitlist-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+        }
+        .confirmation-message {
+            margin-top: 20px;
+            font-size: 1rem;
+            color: #4CAF50;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Uno Hoodies</h1>
+        <p>We are working on something amazing. Stay tuned!</p>
+        <div class="coming-soon">Coming Soon...</div>
+        <div class="waitlist-form">
+            <input type="text" id="waitlist-name" class="waitlist-input" placeholder="Enter your name">
+            <button class="waitlist-btn" onclick="addToWaitlist()">Join Waitlist</button>
+        </div>
+        <div id="confirmation-message" class="confirmation-message">
+            Thank you! You've been added to the waitlist.
+        </div>
+    </div>
+
+    <script>
+        function addToWaitlist() {
+            const name = document.getElementById('waitlist-name').value;
+            if (name) {
+                document.getElementById('waitlist-name').value = "";
+                document.getElementById('confirmation-message').style.display = "block";
+                setTimeout(() => {
+                    document.getElementById('confirmation-message').style.display = "none";
+                }, 3000);
+            } else {
+                alert("Please enter your name.");
+            }
+        }
+    </script>
+</body>
+</html>
